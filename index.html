@@ -1,0 +1,2892 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO Paint Car | Pusat Pengecatan Kereta Premium & Spray Paint Specialist</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Servis mengecat kereta premium GO Paint Car. Tawaran Pakej Full Body Repaint, Bumper, Scratch Repair & Custom Colour dengan kemasan berkilat tinggi dan mutu kerja terjamin.">
+    <meta name="keywords" content="cat kereta, repaint kereta, spray paint studio, full body repaint, repair cat kereta, GO Paint Car, studio cat kereta premium">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GO Paint Car - Luxury Automotive Paint Studio">
+    <meta property="og:description" content="Kembalikan seri kereta anda dengan kemasan cat baharu bertaraf premium. Dapatkan sebut harga percuma hari ini.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://gopaintcar.example.com">
+
+    <!-- Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoBodyShop",
+      "name": "GO Paint Car",
+      "image": "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+      "@id": "https://gopaintcar.example.com",
+      "url": "https://gopaintcar.example.com",
+      "telephone": "+60123456789",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 12, Jalan Industrial Park 3, Kawasan Perindustrian",
+        "addressLocality": "Kuala Lumpur",
+        "postalCode": "50000",
+        "addressCountry": "MY"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:30"
+      }
+    }
+    </script>
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN TOKENS & RESET
+           ========================================================================== */
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-card: #12141c;
+            --bg-card-hover: #1a1d28;
+            --bg-accent: #191c24;
+            
+            /* Gold Metallic Palette */
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa7c11;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa7c11 100%);
+            --gold-soft-glow: 0 0 25px rgba(212, 175, 55, 0.25);
+            
+            --text-main: #f8f9fa;
+            --text-muted: #a0a5b5;
+            --text-gold: #e6ca65;
+            
+            --border-dark: #232734;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Container Limit */
+        .container {
+            width: 90%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Typography Utilities */
+        .font-serif { font-family: var(--font-serif); }
+        .text-gold-gradient {
+            background: var(--gold-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .text-center { text-align: center; }
+        .text-muted { color: var(--text-muted); }
+
+        /* Section Global Header */
+        .section-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Section Padding Global */
+        .py-section {
+            padding: 90px 0;
+            position: relative;
+        }
+
+        .bg-accent-section {
+            background-color: var(--bg-accent);
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        /* ==========================================================================
+           2. BUTTONS & INTERACTIVE ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            outline: none;
+            white-space: nowrap;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--gold-soft-glow);
+            filter: brightness(1.08);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+        }
+
+        .btn-outline-gold:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Golden Glass Badge */
+        .badge-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-full);
+            color: var(--gold-light);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           3. NAVBAR (STICKY & GLASS)
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(11, 12, 16, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        .logo span.highlight {
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--gold-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-gradient);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+        }
+
+        /* ==========================================================================
+           4. HERO SECTION
+           ========================================================================== */
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.75) 0%, rgba(11, 12, 16, 0.95) 100%), 
+                        url('latar.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 540px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .hero-highlights {
+            display: flex;
+            gap: 25px;
+            border-top: 1px solid var(--border-dark);
+            padding-top: 25px;
+        }
+
+        .hero-highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .hero-highlight-item i {
+            color: var(--gold-primary);
+        }
+
+        /* Visual Mockup Before & After */
+        .hero-mockup-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-gold);
+            overflow: hidden;
+            background: var(--bg-card);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .ba-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        .ba-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-img-after {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+
+        .ba-tag {
+            position: absolute;
+            top: 15px;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            z-index: 5;
+        }
+
+        .ba-tag-before {
+            left: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .ba-tag-after {
+            right: 15px;
+            background: var(--gold-gradient);
+            color: #000;
+        }
+
+        /* Interactive Slider Handle */
+        .ba-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: var(--gold-light);
+            z-index: 10;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+        }
+
+        .ba-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--bg-dark);
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            box-shadow: var(--gold-soft-glow);
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================================================
+           5. ABOUT SECTION
+           ========================================================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-stack {
+            position: relative;
+        }
+
+        .about-img-main {
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-dark);
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .about-img-floating {
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            width: 60%;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            object-fit: cover;
+            height: 220px;
+        }
+
+        .about-feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature-item {
+            background: var(--bg-card);
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        .about-feature-item h4 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .about-feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           6. SERVICES SECTION
+           ========================================================================== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .service-img-wrap {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .service-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .service-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .service-benefit {
+            margin-top: auto;
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ==========================================================================
+           7. PACKAGES SECTION
+           ========================================================================== */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+        }
+
+        .package-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-md);
+            padding: 35px 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .package-card.popular {
+            border-color: var(--gold-primary);
+            box-shadow: var(--gold-soft-glow);
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, var(--bg-card) 100%);
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold-gradient);
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .package-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .package-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            min-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .package-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .package-price span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .package-features {
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .package-features li {
+            font-size: 0.88rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .package-features li i {
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+        }
+
+        .package-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* ==========================================================================
+           8. BEFORE & AFTER SHOWCASE SECTION
+           ========================================================================== */
+        .ba-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .ba-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-dark);
+        }
+
+        .ba-card-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--border-dark);
+        }
+
+        .ba-card-img-wrap {
+            position: relative;
+            height: 180px;
+        }
+
+        .ba-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ba-card-info {
+            padding: 20px;
+        }
+
+        .ba-card-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .ba-card-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           9. GALLERY SECTION (MASONRY LAYOUT & LIGHTBOX)
+           ========================================================================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid var(--border-dark);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 15px;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Masonry Spans */
+        .gallery-item.col-span-2 { grid-column: span 2; }
+        .gallery-item.row-span-2 { grid-row: span 2; }
+
+        /* Lightbox CSS */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 85vw;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            margin-top: 15px;
+            color: var(--text-main);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .lightbox-close, .lightbox-prev, .lightbox-next {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        .lightbox-close { top: -50px; right: 0; }
+        .lightbox-prev { left: -70px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: -70px; top: 50%; transform: translateY(-50%); }
+
+        /* ==========================================================================
+           10. WORK PROCESS SECTION
+           ========================================================================== */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+        }
+
+        .process-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            padding: 30px 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .process-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+        }
+
+        .process-num {
+            width: 45px;
+            height: 45px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+        }
+
+        .process-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           11. WHY CHOOSE US SECTION
+           ========================================================================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-dark);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           12. COLOR SELECTION INTERACTIVE SECTION
+           ========================================================================== */
+        .color-selector-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .color-swatches {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin: 30px 0;
+        }
+
+        .swatch {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .swatch.active {
+            border-color: #fff;
+            transform: scale(1.15);
+            box-shadow: var(--gold-soft-glow);
+        }
+
+        .color-preview-box {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0,0,0,0.3);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-dark);
+            margin-bottom: 25px;
+        }
+
+        .selected-color-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 5px;
+        }
+
+        .selected-color-code {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* ==========================================================================
+           13. TESTIMONIALS SECTION
+           ========================================================================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-dark);
+        }
+
+        .testimonial-stars {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--border-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        .author-info h5 {
+            font-size: 0.92rem;
+            color: var(--text-main);
+        }
+
+        .author-info span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           14. FAQ ACCORDION SECTION
+           ========================================================================== */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .faq-header:hover {
+            color: var(--gold-primary);
+        }
+
+        .faq-icon {
+            color: var(--gold-primary);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+            padding: 0 25px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .faq-body p {
+            padding: 15px 0 20px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           15. BOOKING FORM SECTION
+           ========================================================================== */
+        .form-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            padding: 45px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .form-control {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        select.form-control option {
+            background: var(--bg-card);
+            color: #fff;
+        }
+
+        /* Checkbox list for parts */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            accent-color: var(--gold-primary);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ==========================================================================
+           16. MODAL POPUP FORM
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 650px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--gold-primary);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        /* ==========================================================================
+           17. CTA FINAL & FOOTER
+           ========================================================================== */
+        .cta-section {
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.85) 0%, rgba(11, 12, 16, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .footer {
+            background: #07080a;
+            border-top: 1px solid var(--border-dark);
+            padding: 70px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo-desc p {
+            color: var(--text-muted);
+            margin-top: 15px;
+            font-size: 0.88rem;
+            max-width: 320px;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            background: var(--gold-primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--gold-primary);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-dark);
+            padding-top: 25px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse-green 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            color: var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 990;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scroll Reveal Initial state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================================================
+           18. RESPONSIVE BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 30px auto;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            .hero-highlights {
+                justify-content: center;
+            }
+            .about-img-floating {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item.col-span-2 { grid-column: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--bg-dark);
+                border-left: 1px solid var(--border-dark);
+                flex-direction: column;
+                justify-content: center;
+                gap: 25px;
+                transition: var(--transition);
+                z-index: 1001;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .hamburger {
+                display: block;
+                z-index: 1002;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION BAR
+         ========================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-spray-can-sparkles logo-icon"></i>
+                <span>GO PAINT <span class="highlight">CAR</span></span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#services" class="nav-link">Servis</a></li>
+                <li><a href="#packages" class="nav-link">Pakej Harga</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#booking" class="nav-link">Hubungi Kami</a></li>
+            </ul>
+
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <button class="btn btn-gold" style="padding: 10px 20px; font-size: 0.85rem;" onclick="openModal('General Quotation')">
+                    <i class="fa-brands fa-whatsapp"></i> Quotation
+                </button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         HERO SECTION
+         ========================================== -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <span class="badge-gold">
+                        <i class="fa-solid fa-crown"></i> Luxury Automotive Paint Studio
+                    </span>
+                    <h1>Cat Lama Pudar? <span class="text-gold-gradient">Kembalikan Seri</span> Kereta Anda.</h1>
+                    <p>Servis pengecatan kereta berkualiti tinggi dengan pilihan warna eksklusif, kemasan rapi dan pakej mengikut skop bajet anda.</p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#booking" class="btn btn-gold">
+                            <i class="fa-solid fa-calculator"></i> Dapatkan Sebut Harga
+                        </a>
+                        <a href="#packages" class="btn btn-outline-gold">
+                            <i class="fa-solid fa-layer-group"></i> Lihat Pakej Cat
+                        </a>
+                    </div>
+
+                    <div class="hero-highlights">
+                        <div class="hero-highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Car Paint Specialist</span>
+                        </div>
+                        <div class="hero-highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Premium Finishing</span>
+                        </div>
+                        <div class="hero-highlight-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Quality Workmanship</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Before & After Mockup Slider -->
+                <div class="hero-mockup-wrapper reveal">
+                    <div class="ba-container" id="heroBaSlider">
+                        <!-- Before Image (Underneath) -->
+                        <img src="sebelum.jpeg" alt="Kereta Cat Pudar Before" class="ba-img ba-img-before">
+                        <span class="ba-tag ba-tag-before">BEFORE</span>
+
+                        <!-- After Image (Clipped on top) -->
+                        <img src="selepas.jpeg" alt="Kereta Dicat Baharu After" class="ba-img ba-img-after" id="heroAfterImg">
+                        <span class="ba-tag ba-tag-after">AFTER</span>
+
+                        <!-- Divider Line -->
+                        <div class="ba-slider" id="heroSliderHandle">
+                            <div class="ba-button">
+                                <i class="fa-solid fa-left-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         ABOUT SECTION
+         ========================================== -->
+    <section class="py-section bg-accent-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-stack reveal">
+                    <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=800&q=80" alt="Proses Pengecatan Bengkel" class="about-img-main">
+                    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=600&q=80" alt="Kemasan Cat Berkilat" class="about-img-floating">
+                </div>
+
+                <div class="about-content reveal">
+                    <span class="section-subtitle">TENTANG GO PAINT CAR</span>
+                    <h2 class="section-title">Lebih Daripada Sekadar Cat Baharu, Ini Penampilan Baharu Kereta Anda.</h2>
+                    <p class="text-muted">Di GO Paint Car, kami percaya setiap kenderaan berhak mendapatkan hasil kerja tangan yang teliti. Kami menumpukan perhatian khusus terhadap proses penyediaan permukaan sebelum pengecatan bagi memastikan cat melekat dengan kuat dan tahan lama.</p>
+                    
+                    <div class="about-feature-list">
+                        <div class="about-feature-item">
+                            <h4>Pilihan Warna Luas</h4>
+                            <p>Pelbagai rona metallic, pearl dan solid mengikut impian anda.</p>
+                        </div>
+                        <div class="about-feature-item">
+                            <h4>Prep & Repair Teliti</h4>
+                            <p>Penyediaan asas meratakan permukaan dan simen rapi.</p>
+                        </div>
+                        <div class="about-feature-item">
+                            <h4>Paint Booth Terkawal</h4>
+                            <p>Proses semburan bebas habuk dalam kelembapan terkawal.</p>
+                        </div>
+                        <div class="about-feature-item">
+                            <h4>QC & Finishing Inspection</h4>
+                            <p>Semakan rapi kemasan kilat sebelum penyerahan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SERVICES SECTION
+         ========================================== -->
+    <section class="py-section" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">SERVIS PROFESIONAL</span>
+                <h2 class="section-title">Perkhidmatan Pengecatan Mengikut Keperluan</h2>
+                <p class="section-description">Daripada pembaikan calar kecil hingga transformasi warna keseluruhan kenderaan.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Full Body Repaint">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Full Body Repaint</h3>
+                        <p class="service-desc">Pengecatan semula keseluruhan luar badan kereta untuk mengembalikan kilauan seperti baru kuar bilik pameran.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Kemasan Kilat Berpanjangan
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Full Body Repaint')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80" alt="Partial Body Paint">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Partial Body Paint</h3>
+                        <p class="service-desc">Servis pengecatan khas untuk bahagian atau panel tertentu yang memerlukan pembaikan tanpa menukar semua cat.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Padanan Warna Tepat
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Partial Body Paint')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Scratch & Paint Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Scratch & Paint Repair</h3>
+                        <p class="service-desc">Pembaikan calar, rekahan cat kecil dan kerosakan permukaan akibat serpihan batu atau kehausan cuaca.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Menghilangkan Calar Buruk
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Scratch & Paint Repair')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="Bumper Repaint">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Bumper Repaint</h3>
+                        <p class="service-desc">Pengecatan semula bumper hadapan atau belakang yang kerap tergesel, calar atau pudar akibat sinaran UV.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Proses Cepat & Kemas
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Bumper Repaint')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Panel Repaint">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Panel Repaint</h3>
+                        <p class="service-desc">Servis khusus untuk pengecatan satu panel spesifik seperti pintu, bonet hadapan, bumbung atau fender.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Fokus Kualiti Per Panel
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Panel Repaint')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Colour Change">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Colour Change</h3>
+                        <p class="service-desc">Menukar warna asal kereta kepada warna pilihan baharu secara menyeluruh mengikut panduan standard.</p>
+                        <div class="service-benefit">
+                            <i class="fa-solid fa-circle-check"></i> Penampilan Serba Baharu
+                        </div>
+                        <button class="btn btn-outline-gold btn-full" onclick="openModal('Colour Change')">Pilih Servis Ini</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PACKAGES SECTION
+         ========================================== -->
+    <section class="py-section bg-accent-section" id="packages">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">PAKEJ CAT KERETA</span>
+                <h2 class="section-title">Pilihan Pakej Mengikut Bajet & Keperluan</h2>
+                <p class="section-description">Pilihlah skop kerja yang paling sesuai untuk kenderaan anda. Tiada caj tersembunyi.</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card reveal">
+                    <h3 class="package-name">PAKEJ 01</h3>
+                    <div class="text-gold-gradient" style="font-weight: 700; font-size: 0.9rem;">ESSENTIAL REPAINT</div>
+                    <div class="package-subtitle">Untuk penampilan cat baharu dengan pilihan asas yang ekonomik.</div>
+                    <div class="package-price">
+                        <span>Anggaran Mulai Dari</span>
+                        RM ___ *
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Pemeriksaan awal keadaan cat</li>
+                        <li><i class="fa-solid fa-check"></i> Penyediaan permukaan asas</li>
+                        <li><i class="fa-solid fa-check"></i> Pengecatan luar badan</li>
+                        <li><i class="fa-solid fa-check"></i> Pilihan warna standard</li>
+                        <li><i class="fa-solid fa-check"></i> Pemeriksaan kemasan akhir</li>
+                    </ul>
+                    <button class="btn btn-outline-gold btn-full" onclick="openModal('Pakej 01 - Essential Repaint')">Pilih Pakej Ini</button>
+                    <p class="package-note">* Bergantung model & keadaan kereta</p>
+                </div>
+
+                <!-- Package 2 (Popular) -->
+                <div class="package-card popular reveal">
+                    <span class="badge-popular">POPULAR CHOICE</span>
+                    <h3 class="package-name">PAKEJ 02</h3>
+                    <div class="text-gold-gradient" style="font-weight: 700; font-size: 0.9rem;">PREMIUM REPAINT</div>
+                    <div class="package-subtitle">Pilihan paling digemari untuk kemasan menyeluruh dan perlindungan lebih baik.</div>
+                    <div class="package-price">
+                        <span>Anggaran Mulai Dari</span>
+                        RM ___ *
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Pemeriksaan badan terperinci</li>
+                        <li><i class="fa-solid fa-check"></i> Persediaan permukaan & simen halus</li>
+                        <li><i class="fa-solid fa-check"></i> Pengecatan keseluruhan mengikut skop</li>
+                        <li><i class="fa-solid fa-check"></i> Pilihan warna metallic & pearl</li>
+                        <li><i class="fa-solid fa-check"></i> Extra clear coat berkilat</li>
+                        <li><i class="fa-solid fa-check"></i> Semakan QC menyeluruh</li>
+                    </ul>
+                    <button class="btn btn-gold btn-full" onclick="openModal('Pakej 02 - Premium Repaint')">Pilih Pakej Ini</button>
+                    <p class="package-note">* Bergantung model & keadaan kereta</p>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card reveal">
+                    <h3 class="package-name">PAKEJ 03</h3>
+                    <div class="text-gold-gradient" style="font-weight: 700; font-size: 0.9rem;">SIGNATURE FINISH</div>
+                    <div class="package-subtitle">Pengalaman pengecatan eksklusif dengan pilihan kemasan berkilat tinggi.</div>
+                    <div class="package-price">
+                        <span>Anggaran Mulai Dari</span>
+                        RM ___ *
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Inspektif keadaan badan menyeluruh</li>
+                        <li><i class="fa-solid fa-check"></i> Restoration permukaan terperinci</li>
+                        <li><i class="fa-solid fa-check"></i> Pilihan warna khas / custom shade</li>
+                        <li><i class="fa-solid fa-check"></i> Multi-layer clear coating premium</li>
+                        <li><i class="fa-solid fa-check"></i> Polishing & waxing akhir</li>
+                        <li><i class="fa-solid fa-check"></i> Kawalan kualiti peringkat tinggi</li>
+                    </ul>
+                    <button class="btn btn-outline-gold btn-full" onclick="openModal('Pakej 03 - Signature Finish')">Pilih Pakej Ini</button>
+                    <p class="package-note">* Bergantung model & keadaan kereta</p>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card reveal">
+                    <h3 class="package-name">PAKEJ 04</h3>
+                    <div class="text-gold-gradient" style="font-weight: 700; font-size: 0.9rem;">CUSTOM SOLUTION</div>
+                    <div class="package-subtitle">Fleksibel mengikut pembaikan bahagian tertentu atau reka bentuk khas.</div>
+                    <div class="package-price">
+                        <span>Anggaran Mulai Dari</span>
+                        Quotation *
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fa-solid fa-check"></i> Pengecatan bahagian spesifik</li>
+                        <li><i class="fa-solid fa-check"></i> Pembaikan kerosakan cat tempatan</li>
+                        <li><i class="fa-solid fa-check"></i> Pilihan warna khas / kontras</li>
+                        <li><i class="fa-solid fa-check"></i> Disesuaikan mengikut bajet anda</li>
+                        <li><i class="fa-solid fa-check"></i> Sebut harga percuma selepas semakan</li>
+                    </ul>
+                    <button class="btn btn-outline-gold btn-full" onclick="openModal('Pakej 04 - Custom Paint Solution')">Pilih Pakej Ini</button>
+                    <p class="package-note">* Berdasarkan pemeriksaan spesifik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BEFORE & AFTER SHOWCASE SECTION
+         ========================================== -->
+    <section class="py-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">TRANSFORMASI KENDERAAN</span>
+                <h2 class="section-title">Hasil Pengecatan & Perubahan Nyata</h2>
+                <p class="section-description">Lihat perbandingan hasil kerja sebelum dan selepas proses kemasan di GO Paint Car.</p>
+            </div>
+
+            <div class="ba-showcase-grid">
+                <!-- Case 1 -->
+                <div class="ba-card reveal">
+                    <div class="ba-card-images">
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80" alt="Sebelum Repaint Sedan">
+                            <span class="ba-tag ba-tag-before" style="top:10px; left:10px;">SEBELUM</span>
+                        </div>
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=500&q=80" alt="Selepas Repaint Sedan">
+                            <span class="ba-tag ba-tag-after" style="top:10px; right:10px;">SELEPAS</span>
+                        </div>
+                    </div>
+                    <div class="ba-card-info">
+                        <h4>Full Body Metallic Black</h4>
+                        <p>Pemulihan cat kusam pada badan kereta sedan kepada kilauan metallic hitam eksklusif.</p>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="ba-card reveal">
+                    <div class="ba-card-images">
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=500&q=80" alt="Sebelum Pembaikan Bumper">
+                            <span class="ba-tag ba-tag-before" style="top:10px; left:10px;">SEBELUM</span>
+                        </div>
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80" alt="Selepas Pembaikan Bumper">
+                            <span class="ba-tag ba-tag-after" style="top:10px; right:10px;">SELEPAS</span>
+                        </div>
+                    </div>
+                    <div class="ba-card-info">
+                        <h4>Bumper & Hood Touch-up</h4>
+                        <p>Pembaikan bahagian hadapan yang tergesel dan pudar akibat batu-batu jalan raya.</p>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="ba-card reveal">
+                    <div class="ba-card-images">
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=500&q=80" alt="Sebelum Menukar Warna">
+                            <span class="ba-tag ba-tag-before" style="top:10px; left:10px;">SEBELUM</span>
+                        </div>
+                        <div class="ba-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=500&q=80" alt="Selepas Menukar Warna">
+                            <span class="ba-tag ba-tag-after" style="top:10px; right:10px;">SELEPAS</span>
+                        </div>
+                    </div>
+                    <div class="ba-card-info">
+                        <h4>Custom Colour Transformation</h4>
+                        <p>Penukaran rona cat asal kepada warna eksklusif pilihan pemilik dengan kemasan clear coat extra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         GALLERY SECTION (MASONRY & LIGHTBOX)
+         ========================================== -->
+    <section class="py-section bg-accent-section" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">PORTFOLIO KAMI</span>
+                <h2 class="section-title">Galeri Hasil Kerja & Suasana Studio</h2>
+                <p class="section-description">Klik pada mana-mana gambar untuk paparan saiz penuh.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item col-span-2 row-span-2 reveal" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80" alt="Kemasan Cat Hitam Kilat">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Kemasan Perfect Gloss Black</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=600&q=80" alt="Proses Semburan Cat Booth">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Proses Pengecatan Dalam Booth</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=600&q=80" alt="Detil Refleksi Cat">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Refleksi Kemasan Clear Coat</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item row-span-2 reveal" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Pengecatan Kereta Sukan">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Kemasan Kereta Performance</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Cat Merah Metallic">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Pilihan Candy Red Pearl</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item col-span-2 reveal" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80" alt="Hasil Pengecatan Panel Pintu">
+                    <div class="gallery-item-overlay">
+                        <span class="gallery-caption">Ketelitian Pengecatan Panel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL ELEMENT -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-prev" onclick="changeLightboxImg(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-next" onclick="changeLightboxImg(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Lightbox View" class="lightbox-img" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         WORK PROCESS SECTION
+         ========================================== -->
+    <section class="py-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">ALIRAN KERJA</span>
+                <h2 class="section-title">5 Langkah Mudah Ke Penampilan Baharu</h2>
+                <p class="section-description">Proses teliti yang dirancang untuk memastikan keselesaan dan kejelasan bagi setiap pelanggan.</p>
+            </div>
+
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-card reveal">
+                    <div class="process-num">1</div>
+                    <h4>Pertanyaan</h4>
+                    <p>Hubungi kami melalui WhatsApp untuk perbincangan awal tentang keperluan kereta anda.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card reveal">
+                    <div class="process-num">2</div>
+                    <h4>Pemeriksaan</h4>
+                    <p>Bawa kereta ke studio untuk semakan keadaan permukaan dan panel secara fizikal.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card reveal">
+                    <div class="process-num">3</div>
+                    <h4>Sebut Harga</h4>
+                    <p>Terima anggaran quotation yang jelas berdasarkan pilihan warna dan pakej disetujui.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card reveal">
+                    <div class="process-num">4</div>
+                    <h4>Pengecatan</h4>
+                    <p>Proses penyediaan asas, penyemburan cat dan kemasan kilat mengikut prosedur standard.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-card reveal">
+                    <div class="process-num">5</div>
+                    <h4>Pemeriksaan Akhir</h4>
+                    <p>Semakan kualiti bersama pelanggan sebelum kereta diserahkan dengan gembira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         WHY CHOOSE US SECTION
+         ========================================== -->
+    <section class="py-section bg-accent-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">KELEBIHAN KAMI</span>
+                <h2 class="section-title">Mengapa Memilih GO Paint Car?</h2>
+                <p class="section-description">Faktor-faktor yang menjadikan kami pilihan pemilik kereta yang mementingkan mutu kerja.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-list-check feature-icon"></i>
+                    <h4>Pilihan Pakej Fleksibel</h4>
+                    <p>Pilihan daripada pakej asas hingga kemasan eksklusif yang boleh disesuaikan mengikut bajet anda.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-palette feature-icon"></i>
+                    <h4>Pilihan Warna Menarik</h4>
+                    <p>Pelbagai variasi rona metallic, solid & custom coat mengikut citarasa pemilik kenderaan.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-magnifying-glass feature-icon"></i>
+                    <h4>Pemeriksaan Sebelum Kerja</h4>
+                    <p>Setiap keadaan cat dan badan diperiksa secara teliti untuk menentukan kaedah penyediaan yang betul.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-file-contract feature-icon"></i>
+                    <h4>Skop Kerja Lebih Jelas</h4>
+                    <p>Penerangan skop pengecatan dan kemasan diberikan secara telus sebelum sebarang proses bermula.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-calculator feature-icon"></i>
+                    <h4>Sebut Harga Realistik</h4>
+                    <p>Sebut harga dibuat berdasarkan keperluan sebenar kereta tanpa caj tersembunyi yang mengelirukan.</p>
+                </div>
+
+                <div class="feature-card reveal">
+                    <i class="fa-solid fa-award feature-icon"></i>
+                    <h4>Pemeriksaan Kemasan Akhir</h4>
+                    <p>Kawalan kualiti peringkat akhir bagi memastikan hasil cat rapi dan sekata sebelum penyerahan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE COLOR SELECTION SECTION
+         ========================================== -->
+    <section class="py-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">KATALOG WARNA</span>
+                <h2 class="section-title">Terokai Pilihan Warna Popular</h2>
+                <p class="section-description">Pilih sampel warna di bawah untuk melihat rona kemasan yang diminati.</p>
+            </div>
+
+            <div class="color-selector-wrap reveal">
+                <div class="color-preview-box" id="colorPreviewBox">
+                    <div class="selected-color-name" id="colorName">Metallic Black</div>
+                    <div class="selected-color-code" id="colorCode">CODE: MB-9001 (Sample)</div>
+                </div>
+
+                <div class="color-swatches" id="colorSwatches">
+                    <div class="swatch active" style="background: #111111;" data-name="Metallic Black" data-code="MB-9001" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #f0f0f0;" data-name="Pearl White" data-code="PW-1002" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #d4af37;" data-name="Champagne Gold" data-code="CG-7005" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #a81c1c;" data-name="Sporty Red" data-code="SR-3004" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #4a505a;" data-name="Gunmetal Grey" data-code="GG-5008" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #0f2a4a;" data-name="Midnight Blue" data-code="MB-4009" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #c0c0c0;" data-name="Silver Metallic" data-code="SM-2003" onclick="selectColor(this)"></div>
+                    <div class="swatch" style="background: #e6b800;" data-name="Racing Yellow" data-code="RY-8002" onclick="selectColor(this)"></div>
+                </div>
+
+                <p class="text-center text-muted" style="font-size: 0.82rem; margin-bottom: 20px;">*Nota: Paparan warna adalah visual ilustrasi. Pilihan warna sebenar tertakluk kepada ketersediaan stok & pengesahan di bengkel.</p>
+                
+                <div class="text-center">
+                    <button class="btn btn-gold" onclick="openModalWithColor()">
+                        <i class="fa-solid fa-paint-roller"></i> Saya Berminat Dengan Warna Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONIALS SECTION
+         ========================================== -->
+    <section class="py-section bg-accent-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">MAKLUM BALAS</span>
+                <h2 class="section-title">Pengalaman Pelanggan Kami</h2>
+                <p class="section-description">Contoh maklum balas daripada pemilik kenderaan yang telah menggunakan servis kami.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Hasil cat Full Body Repaint untuk kereta sedan saya sangat memuaskan. Kemasan clear coat kilat dan permukaan rata. Layanan team pun profesional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AZ</div>
+                        <div class="author-info">
+                            <h5>En. Azman (Pelanggan Contoh)</h5>
+                            <span>Full Body Repaint - Honda Civic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Bumper depan yang tergesel tajam akibat batu di lebuhraya kini kembali nampak macam baharu. Padanan warna merah tepat sekali."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KH</div>
+                        <div class="author-info">
+                            <h5>Pn. Khadijah (Pelanggan Contoh)</h5>
+                            <span>Bumper Repaint - Perodua Myvi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Sebut harga yang diberikan sangat jelas dan telus mengikut skop bajet saya. Kerja siap mengikut masa yang dibincangkan."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div class="author-info">
+                            <h5>En. Ramesh (Pelanggan Contoh)</h5>
+                            <span>Pakej Signature Finish - Toyota Vios</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FAQ SECTION
+         ========================================== -->
+    <section class="py-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">SOALAN LAZIM</span>
+                <h2 class="section-title">Jawapan Kepada Pertanyaan Anda</h2>
+                <p class="section-description">Berikut adalah soalan yang biasa ditanyakan oleh pemilik kereta sebelum membuat tempahan.</p>
+            </div>
+
+            <div class="faq-accordion reveal">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>1. Berapa harga untuk cat semula sebuah kereta?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Harga bergantung kepada saiz model kereta, keadaan semasa badan/cat (sama ada perlu pembaikan simen terperinci) dan jenis pakej cat yang dipilih. Sila hubungi kami untuk sebut harga percuma.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>2. Berapa lama proses pengecatan mengambil masa?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Tempoh proses bergantung kepada skop kerja. Untuk pengecatan panel/bumper biasanya mengambil masa beberapa hari, manakala Full Body Repaint memerlukan masa lebih panjang mengikut tahap penyediaan permukaan.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>3. Bolehkah saya memilih warna sendiri?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Ya, anda boleh memilih daripada pelbagai contoh rona warna yang kami sediakan termasuk metallic, pearl atau kod warna spesifik pilihan anda.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>4. Adakah semua jenis kereta diterima?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Kami menerima pelbagai model kenderaan merangkumi sedan, hatchback, SUV, MPV dan 4x4. Pemeriksaan fizikal akan dibuat untuk kepastian.</p>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>5. Adakah kereta perlu diperiksa sebelum quotation?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Anggaran awal boleh diberikan melalui foto di WhatsApp. Namun pemeriksaan fizikal digalakkan untuk penetapan harga muktamad yang tepat.</p>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>6. Bolehkah mengecat bahagian tertentu sahaja?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Boleh. Kami menyediakan servis Partial Body Paint dan Panel Repaint khusus untuk bahagian seperti bumper, bonet atau pintu sahaja.</p>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>7. Adakah terdapat jaminan untuk kerja pengecatan?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Skop jaminan dan terma pengecatan akan diterangkan secara jelas mengikut pakej yang anda pilih semasa perbincangan awal.</p>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span>8. Bagaimana cara untuk membuat tempahan?</span>
+                        <i class="fa-solid fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Anda boleh mengisi borang sebut harga di laman web ini atau terus menekan butang WhatsApp untuk berhubung dengan pegawai khidmat pelanggan kami.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MAIN BOOKING FORM SECTION
+         ========================================== -->
+    <section class="py-section bg-accent-section" id="booking">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">DAPATKAN QUOTATION</span>
+                <h2 class="section-title">Borang Permintaan Sebut Harga</h2>
+                <p class="section-description">Isi maklumat kenderaan anda di bawah untuk tindakan pantas team GO Paint Car.</p>
+            </div>
+
+            <div class="form-container reveal">
+                <form id="mainBookingForm" onsubmit="handleFormSubmit(event, 'main')">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="mainName">Nama Penuh *</label>
+                            <input type="text" id="mainName" class="form-control" placeholder="Contoh: Ahmad Razali" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainPhone">Nombor Telefon / WhatsApp *</label>
+                            <input type="tel" id="mainPhone" class="form-control" placeholder="Contoh: 0123456789" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainBrand">Jenama Kereta *</label>
+                            <input type="text" id="mainBrand" class="form-control" placeholder="Contoh: Honda / Perodua / Toyota" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainModel">Model & Tahun Kereta *</label>
+                            <input type="text" id="mainModel" class="form-control" placeholder="Contoh: Civic (2018)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainCurrColor">Warna Asal Kereta</label>
+                            <input type="text" id="mainCurrColor" class="form-control" placeholder="Contoh: Hitam Pudar">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainNewColor">Warna Pilihan Baharu</label>
+                            <input type="text" id="mainNewColor" class="form-control" placeholder="Contoh: Pearl White / Custom Metallic">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainService">Jenis Servis</label>
+                            <select id="mainService" class="form-control">
+                                <option value="Full Body Repaint">Full Body Repaint</option>
+                                <option value="Partial Body Paint">Partial Body Paint</option>
+                                <option value="Scratch & Paint Repair">Scratch & Paint Repair</option>
+                                <option value="Bumper Repaint">Bumper Repaint</option>
+                                <option value="Panel Repaint">Panel Repaint</option>
+                                <option value="Colour Change">Colour Change</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mainPackage">Pilihan Pakej</label>
+                            <select id="mainPackage" class="form-control">
+                                <option value="Pakej 01 - Essential Repaint">Pakej 01 - Essential Repaint</option>
+                                <option value="Pakej 02 - Premium Repaint">Pakej 02 - Premium Repaint</option>
+                                <option value="Pakej 03 - Signature Finish">Pakej 03 - Signature Finish</option>
+                                <option value="Pakej 04 - Custom Paint Solution">Pakej 04 - Custom Solution</option>
+                                <option value="Perluan Pertanyaan Khusus">Perluan Pertanyaan Khusus</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Bahagian Kereta Yang Ingin Dicat:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Kereta Keseluruhan"> Kereta Keseluruhan</label>
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Bahagian Hadapan"> Bahagian Hadapan</label>
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Bahagian Belakang"> Bahagian Belakang</label>
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Pintu"> Pintu</label>
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Bonet"> Bonet</label>
+                                <label class="checkbox-item"><input type="checkbox" name="parts" value="Bumper"> Bumper</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="mainNotes">Catatan Tambahan / Keadaan Cat Semasa</label>
+                            <textarea id="mainNotes" class="form-control" rows="3" placeholder="Terangkan keadaan cat semasa atau sebarang soalan khas..."></textarea>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button type="submit" class="btn btn-gold btn-full" style="max-width: 400px;">
+                            <i class="fa-brands fa-whatsapp"></i> HANTAR PERMINTAAN QUOTATION
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CTA FINAL SECTION
+         ========================================== -->
+    <section class="cta-section">
+        <div class="container reveal">
+            <span class="badge-gold" style="margin-bottom: 20px;">
+                <i class="fa-solid fa-sparkles"></i> GO PAINT CAR EXPERT STUDIO
+            </span>
+            <h2 class="section-title" style="font-size: 2.5rem; max-width: 800px; margin: 0 auto 20px auto;">Kereta Anda Layak Mendapat Penampilan Yang Lebih Menarik.</h2>
+            <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 35px auto; font-size: 1.05rem;">Rancang pengecatan semula kereta anda bersama GO Paint Car. Hubungi kami untuk berbincang tentang pilihan warna, jenis servis dan pakej yang sesuai.</p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="#booking" class="btn btn-gold">
+                    <i class="fa-solid fa-calculator"></i> Dapatkan Quotation
+                </a>
+                <button class="btn btn-outline-gold" onclick="openWhatsAppDirect()">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Kami
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER SECTION
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo-desc">
+                    <a href="#" class="logo">
+                        <i class="fa-solid fa-spray-can-sparkles logo-icon"></i>
+                        <span>GO PAINT <span class="highlight">CAR</span></span>
+                    </a>
+                    <p>Pusat pengecatan kereta premium yang mengutamakan kemasan rapi, penyediaan permukaan yang teliti dan kepuasan pemilik kenderaan.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Pautan Pantas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#services">Servis</a></li>
+                        <li><a href="#packages">Pakej Harga</a></li>
+                        <li><a href="#gallery">Galeri Portfolio</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Servis Kami</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Full Body Repaint</a></li>
+                        <li><a href="#services">Partial Body Paint</a></li>
+                        <li><a href="#services">Scratch Repair</a></li>
+                        <li><a href="#services">Bumper Repaint</a></li>
+                        <li><a href="#services">Panel Repaint</a></li>
+                        <li><a href="#services">Colour Change</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Hubungi Kami</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>No. 12, Jalan Industrial Park 3, Kawasan Perindustrian, 50000 Kuala Lumpur</span>
+                        </li>
+                        <li>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>+60 12-345 6789</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Isnin - Sabtu: 9.00 AM - 6.30 PM<br>Ahad: Tutup</span>
+                        </li>
+                    </ul>
+                    <div style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="#" style="color: var(--gold-primary); font-size: 1.2rem;" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" style="color: var(--gold-primary); font-size: 1.2rem;" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" style="color: var(--gold-primary); font-size: 1.2rem;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 GO Paint Car. All Rights Reserved. Reka Bentuk Landing Page Premium Automotif.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING BUTTONS
+         ========================================== -->
+    <a href="javascript:void(0)" onclick="openWhatsAppDirect()" class="floating-whatsapp" aria-label="Chat WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- ==========================================
+         MODAL POPUP FORM
+         ========================================== -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tempahan Quotation</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="modalBookingForm" onsubmit="handleFormSubmit(event, 'modal')">
+                    <input type="hidden" id="modalSelectedSelection" value="">
+                    
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>Pilihan Anda:</label>
+                            <input type="text" id="modalSelectionDisplay" class="form-control" readonly style="background: rgba(212, 175, 55, 0.1); color: var(--gold-light); font-weight:700;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalName">Nama Penuh *</label>
+                            <input type="text" id="modalName" class="form-control" placeholder="Nama anda" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalPhone">Nombor Telefon / WhatsApp *</label>
+                            <input type="tel" id="modalPhone" class="form-control" placeholder="Contoh: 0123456789" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalBrand">Jenama Kereta *</label>
+                            <input type="text" id="modalBrand" class="form-control" placeholder="Contoh: Honda / Perodua" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalModel">Model & Tahun *</label>
+                            <input type="text" id="modalModel" class="form-control" placeholder="Contoh: Myvi (2020)" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="modalColor">Warna Pilihan Baharu</label>
+                            <input type="text" id="modalColor" class="form-control" placeholder="Warna impian anda">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="modalNotes">Catatan Tambahan</label>
+                            <textarea id="modalNotes" class="form-control" rows="3" placeholder="Sebarang maklumat tambahan..."></textarea>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button type="submit" class="btn btn-gold btn-full">
+                            <i class="fa-brands fa-whatsapp"></i> Hantar Melalui WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC (VANILLA)
+         ========================================== -->
+    <script>
+        /* CONFIGURATION: Nombor WhatsApp Bengkel (Placeholder) */
+        const WHATSAPP_PHONE_NUMBER = "60123456789";
+
+        /* Gallery Images Array for Lightbox */
+        const galleryItemsData = [
+            { src: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80", caption: "Kemasan Perfect Gloss Black - Full Body Repaint" },
+            { src: "https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=1200&q=80", caption: "Proses Pengecatan Spray Booth Kawalan Suhu" },
+            { src: "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1200&q=80", caption: "Refleksi Kemasan Clear Coat Premium" },
+            { src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80", caption: "Hasil Akhir Pengecatan Kereta Sukan" },
+            { src: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80", caption: "Pilihan Warna Candy Red Pearl" },
+            { src: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80", caption: "Ketelitian Pengecatan Per Panel" }
+        ];
+        let currentLightboxIndex = 0;
+
+        /* Init Functions on Load */
+        window.addEventListener('DOMContentLoaded', () => {
+            initNavbarScroll();
+            initMobileNav();
+            initHeroBAComparison();
+            initScrollReveal();
+            initBackToTop();
+            initKeyboardEvents();
+        });
+
+        /* 1. Navbar Scroll Effect */
+        function initNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        /* 2. Mobile Navigation Toggle */
+        function initMobileNav() {
+            const btn = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            btn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = btn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close nav when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    btn.querySelector('i').className = 'fa-solid fa-bars';
+                });
+            });
+        }
+
+        /* 3. Hero Before & After Interactive Slider */
+        function initHeroBAComparison() {
+            const container = document.getElementById('heroBaSlider');
+            const afterImg = document.getElementById('heroAfterImg');
+            const handle = document.getElementById('heroSliderHandle');
+            let isDragging = false;
+
+            if (!container || !afterImg || !handle) return;
+
+            const setPosition = (x) => {
+                const rect = container.getBoundingClientRect();
+                let offsetX = x - rect.left;
+                if (offsetX < 0) offsetX = 0;
+                if (offsetX > rect.width) offsetX = rect.width;
+
+                const percent = (offsetX / rect.width) * 100;
+                handle.style.left = `${percent}%`;
+                afterImg.style.clipPath = `polygon(${percent}% 0, 100% 0, 100% 100%, ${percent}% 100%)`;
+            };
+
+            // Mouse events
+            handle.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => isDragging = false);
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                setPosition(e.clientX);
+            });
+
+            // Touch events for mobile
+            handle.addEventListener('touchstart', () => isDragging = true);
+            window.addEventListener('touchend', () => isDragging = false);
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                if (e.touches.length > 0) {
+                    setPosition(e.touches[0].clientX);
+                }
+            });
+        }
+
+        /* 4. Intersection Observer Scroll Reveal */
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        /* 5. Lightbox Gallery Logic */
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+
+            img.src = galleryItemsData[index].src;
+            caption.textContent = galleryItemsData[index].caption;
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        function changeLightboxImg(step) {
+            currentLightboxIndex += step;
+            if (currentLightboxIndex < 0) currentLightboxIndex = galleryItemsData.length - 1;
+            if (currentLightboxIndex >= galleryItemsData.length) currentLightboxIndex = 0;
+
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+            img.src = galleryItemsData[currentLightboxIndex].src;
+            caption.textContent = galleryItemsData[currentLightboxIndex].caption;
+        }
+
+        /* 6. FAQ Accordion Toggle */
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const body = item.querySelector('.faq-body');
+            const isOpen = item.classList.contains('active');
+
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-body').style.maxHeight = null;
+            });
+
+            // Open clicked item if wasn't open
+            if (!isOpen) {
+                item.classList.add('active');
+                body.style.maxHeight = body.scrollHeight + "px";
+            }
+        }
+
+        /* 7. Color Swatch Selector */
+        function selectColor(element) {
+            document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+            element.classList.add('active');
+
+            const name = element.getAttribute('data-name');
+            const code = element.getAttribute('data-code');
+
+            document.getElementById('colorName').textContent = name;
+            document.getElementById('colorCode').textContent = `CODE: ${code} (Sample)`;
+        }
+
+        function openModalWithColor() {
+            const name = document.getElementById('colorName').textContent;
+            openModal(`Warna Pilihan: ${name}`);
+        }
+
+        /* 8. Booking Modal Logic */
+        function openModal(titleOrItem) {
+            const modal = document.getElementById('bookingModal');
+            document.getElementById('modalTitle').textContent = `Tempahan Quotation`;
+            document.getElementById('modalSelectionDisplay').value = titleOrItem || "Pertanyaan Am";
+            document.getElementById('modalSelectedSelection').value = titleOrItem || "Pertanyaan Am";
+            
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+
+        // Close modal on click outside
+        window.addEventListener('click', (e) => {
+            const bookingModal = document.getElementById('bookingModal');
+            const lightboxModal = document.getElementById('lightboxModal');
+            if (e.target === bookingModal) closeModal();
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        /* 9. Form Validation & WhatsApp Redirection */
+        function handleFormSubmit(e, type) {
+            e.preventDefault();
+
+            let name, phone, brand, model, currColor, newColor, service, pkg, parts = [], notes;
+
+            if (type === 'main') {
+                name = document.getElementById('mainName').value.trim();
+                phone = document.getElementById('mainPhone').value.trim();
+                brand = document.getElementById('mainBrand').value.trim();
+                model = document.getElementById('mainModel').value.trim();
+                currColor = document.getElementById('mainCurrColor').value.trim() || "Tidak dinyatakan";
+                newColor = document.getElementById('mainNewColor').value.trim() || "Belum pasti";
+                service = document.getElementById('mainService').value;
+                pkg = document.getElementById('mainPackage').value;
+                notes = document.getElementById('mainNotes').value.trim() || "Tiada catatan tambahan";
+
+                document.querySelectorAll('input[name="parts"]:checked').forEach(cb => {
+                    parts.push(cb.value);
+                });
+            } else {
+                name = document.getElementById('modalName').value.trim();
+                phone = document.getElementById('modalPhone').value.trim();
+                brand = document.getElementById('modalBrand').value.trim();
+                model = document.getElementById('modalModel').value.trim();
+                currColor = "Tidak dinyatakan";
+                newColor = document.getElementById('modalColor').value.trim() || "Belum pasti";
+                service = document.getElementById('modalSelectedSelection').value;
+                pkg = "Berdasarkan Permintaan";
+                notes = document.getElementById('modalNotes').value.trim() || "Tiada catatan tambahan";
+            }
+
+            // Simple phone validation
+            if (phone.length < 9) {
+                alert("Sila masukkan nombor telefon / WhatsApp yang sah.");
+                return;
+            }
+
+            const partsText = parts.length > 0 ? parts.join(", ") : "Tidak dinyatakan spesifik";
+
+            // Format WhatsApp Message
+            const message = `*TEMPAHAN QUOTATION - GO PAINT CAR*\n\n` +
+                            `*Nama:* ${name}\n` +
+                            `*No. WhatsApp:* ${phone}\n` +
+                            `*Jenama Kereta:* ${brand}\n` +
+                            `*Model & Tahun:* ${model}\n` +
+                            `*Warna Asal:* ${currColor}\n` +
+                            `*Warna Baharu Diminati:* ${newColor}\n` +
+                            `*Pilihan Servis/Pakej:* ${service} (${pkg})\n` +
+                            `*Bahagian Cat:* ${partsText}\n` +
+                            `*Catatan:* ${notes}\n\n` +
+                            `_Saya ingin mendapatkan maklumat lanjut dan sebut harga bagi kenderaan saya._`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
+
+            // Close modal if open
+            if (type === 'modal') closeModal();
+
+            // Open WhatsApp
+            window.open(waUrl, '_blank');
+        }
+
+        function openWhatsAppDirect() {
+            const initialMessage = encodeURIComponent("Halo GO Paint Car, saya berminat untuk bertanyakan servis pengecatan kereta dan mendapatkan sebut harga.");
+            window.open(`https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${initialMessage}`, '_blank');
+        }
+
+        /* 10. Back to top button & Keyboard Navigation */
+        function initBackToTop() {
+            const btn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function initKeyboardEvents() {
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    closeLightbox();
+                }
+                const lightboxModal = document.getElementById('lightboxModal');
+                if (lightboxModal.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') changeLightboxImg(-1);
+                    if (e.key === 'ArrowRight') changeLightboxImg(1);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
